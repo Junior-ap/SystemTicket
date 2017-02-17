@@ -10,9 +10,19 @@ class Usuario extends CI_Controller {
     }
 
     public function entra(){
-        //var_dump($this->input->post());
+        //Sistema de segurança contra programas que preenche os campos automatico
         if ($this->input->post('captch')) redirect('usuario');
+
+
+
+
+
     }
 
 
 }
+/*
+ * var_dump($this->input->post());
+ *
+ *
+ */
