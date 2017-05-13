@@ -7,15 +7,23 @@ class Usuarios extends CI_Model {
     public function __construct(){
         parent::__construct();
     }
-    public function create(){
-        return
-            $this->db->insert('users',$this);
+
+    public function cadastrar(){
+       // return
+           // $this->db->insert('users',$this);
     }
 
-    public function find($value, $param = 'username'){
-        return $this->db->get_where('users',array(
-            $param=> $value
-        ))->row();
+    public function listar($value, $param = 'username'){
+       // return $this->db->get_where('users',array(
+       //     $param=> $value
+      //  ))->row();
     }
 
+    public function deletar(){
+
+    }
+
+    public function atualizar(){
+
+    }
 }
