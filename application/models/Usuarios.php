@@ -2,21 +2,19 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Usuarios extends CI_Model {
-    public $username, $firstname, $lastname, $email, $password;
 
     public function __construct(){
         parent::__construct();
     }
 
-    public function cadastrar(){
-       // return
-           // $this->db->insert('users',$this);
+
+    public function cadastrarUsuario(){
+        return
+            $this->db->insert('usuario',$this);
     }
 
-    public function listar($value, $param = 'username'){
-       // return $this->db->get_where('users',array(
-       //     $param=> $value
-      //  ))->row();
+    public function listarCliente(){
+
     }
 
     public function deletar(){
@@ -25,5 +23,11 @@ class Usuarios extends CI_Model {
 
     public function atualizar(){
 
+    }
+    //Pesquisar se existe usuario Metodo login
+    public function pesquisa($value, $param = 'nome'){
+        return $this->db->get_where('usuario',array(
+            $param=> $value
+        ))->row();
     }
 }

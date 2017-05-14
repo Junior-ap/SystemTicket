@@ -1,6 +1,6 @@
 <IfModule mod_rewrite.c>
 	RewriteEngine On
-	RewriteBase /SystemTicket
+	RewriteBase /systemticket
 
 	#Removes access to the system folder by users.
 	#Additionally this will allow you to create a System.php controller,
@@ -17,7 +17,7 @@
 	#This last condition enables access to the images and css folders, and the robots.txt file
 	#Submitted by Michael Radlmaier (mradlmaier)
 	RewriteCond $1 !^(index\.php|images|robots\.txt|css)
-	RewriteRule ^(.*)$ /sone/index.php/$1 [L]
+	RewriteRule ^(.*)$ /systemticket/index.php/$1 [L]
 </IfModule>
 
 <IfModule !mod_rewrite.c>
@@ -25,5 +25,5 @@
 	# can be sent to index.php, and everything works as normal.
 	# Submitted by: ElliotHaughin
 
-	ErrorDocument 404 /sone/index.php
+	ErrorDocument 404 /systemticket/index.php
 </IfModule>
