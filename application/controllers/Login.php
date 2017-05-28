@@ -6,22 +6,7 @@ class Login extends CI_Controller {
     //Carregar a pagina inicial do sistema de login
     public function index(){
         if($this->session->logado){
-            if($this->session->permissao == 'Administrador'){
-                $this->load->view('template/header');
-                $this->load->view('template/adm');
-                $this->load->view('adm/listaTicket',$this->data);
-                $this->load->view('template/footer');
-            }elseif($this->session->permissao == 'Colaborador'){
-                $this->load->view('template/header');
-                $this->load->view('template/colaborador');
-                $this->load->view('adm/listaTicket',$this->data);
-                $this->load->view('template/footer');
-            }elseif($this->session->permissao == 'Cliente'){
-                $this->load->view('template/header');
-                $this->load->view('template/cliente');
-                $this->load->view('listaTicket',$this->data);
-                $this->load->view('template/footer');
-            }
+           redirect('listar/'.'Aberta');
         }else{
             $this->load->view('template/header');
             $this->load->view('login',$this->data);
@@ -42,21 +27,19 @@ class Login extends CI_Controller {
                 'logado' => TRUE
             );
             $this->session->set_userdata($data);
-            $this->index();
+            redirect('listar/'.'Todas');
         }
         else{
             $this->data['error']= new stdClass();
             $this->data['error']->message ='Usuario ou senha incorrentos';
             $this->index();
         }
-
     }
 
     //Deslogar o usuario
     public function sair(){
         $this->session->sess_destroy();
-        $this->index();
-        redirect();
+        redirect('login');
     }
 
 

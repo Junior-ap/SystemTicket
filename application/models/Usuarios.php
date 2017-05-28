@@ -14,15 +14,26 @@ class Usuarios extends CI_Model {
     }
 
     public function listarCliente(){
-
+        $query = $this->db->get('usuario');
+        return $query->result();
     }
 
-    public function deletar(){
-
+    public function buscar($id){
+        return $this->db->select()
+            ->from('usuario u')
+            ->where('u.id =',$id)
+            ->get()->result();
     }
 
-    public function atualizar(){
+    public function deletar($id){
+        $this->db->where('id',$id);
+        return $this->db->delete('usuario');
+    }
 
+    public function atualizar($id){
+        $this->db->set($this);
+        $this->db->where('id', $id);
+        return $this->db->update("usuario", $this);
     }
     //Pesquisar se existe usuario Metodo login
     public function pesquisa($value, $param = 'nome'){

@@ -1,4 +1,4 @@
-<div class="container ">
+﻿<div class="container ">
     <div class="row">
         <form role="form" method="post" action="<?= base_url('novoUsuario')?>">
             <div class="form-group col-sm-10">

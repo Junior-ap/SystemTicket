@@ -1,5 +1,5 @@
-<div class="container">
-<form action="autenticar" method="post">
+﻿<div class="container">
+<form action="<?= base_url('autenticar')?>" method="post">
     <div class="form-group">
         <label for="usuario">Empresa:</label>
         <input class="form-control"  name="usuario" required>

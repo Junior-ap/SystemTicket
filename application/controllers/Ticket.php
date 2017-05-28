@@ -1,15 +1,35 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Ticket extends CI_Controller {
+class Ticket extends CI_Controller{
     //Listar Ticket nas telas do Adm e Colaborador
-
-
-    public function listar(){
-
+    public function listar($status = null){
+        $this->load->model('TicketModel', 'ticket');
+        if ($this->session->permissao == 'Administrador') {
+            if($status=='Todas'){$dados['ticket'] = $this->ticket->listarTicketTodos();
+            }else{$dados['ticket'] = $this->ticket->listar($status);}
+            $this->load->view('template/header');
+            $this->load->view('template/adm');
+            $this->load->view('listaTicket', $dados);
+            $this->load->view('template/footer');
+        } elseif ($this->session->permissao == 'Colaborador') {
+            if($status=='Todas'){$dados['ticket'] = $this->ticket->listarTicketTodos();
+            }else{$dados['ticket'] = $this->ticket->listar($status);}
+            $this->load->view('template/header');
+            $this->load->view('template/colaborador');
+            $this->load->view('listaTicket', $dados);
+            $this->load->view('template/footer');
+        } elseif ($this->session->permissao == 'Cliente') {
+            if($status=='Todas'){$dados['ticket'] = $this->ticket->listarTodostUsuario($this->session->id);
+            }else{$dados['ticket'] = $this->ticket->listarTicketUsuario($status, $this->session->id);}
+            $this->load->view('template/header');
+            $this->load->view('template/cliente');
+            $this->load->view('listaTicket', $dados);
+            $this->load->view('template/footer');
+        }
     }
     //Listar Ticket na tela do usuario
-    public function listarTicketUsuario(){
+    public function criarTicketUsuario(){
         if($this->session->logado){
             if($this->session->permissao == 'Cliente') {
                 $this->load->view('template/header');
@@ -24,7 +44,22 @@ class Ticket extends CI_Controller {
         }
     }
     //Quando clicar em um Ticket exibir o mesmo
-    public function ExibirTicket(){
+    public function exibirTicket($id=null){
+
+        $this->load->model('TicketModel', 'ticket');
+        if ($this->session->permissao == 'Administrador') {
+
+            $this->load->view('template/header');
+            $this->load->view('template/adm');
+            $this->load->view('exibirTicket');
+            $this->load->view('template/footer');
+        } elseif ($this->session->permissao == 'Colaborador') {
+
+        } elseif ($this->session->permissao == 'Cliente') {
+
+        }
+
+
 
     }
     //Finalizar o Ticket
@@ -33,6 +68,7 @@ class Ticket extends CI_Controller {
     }
     //Novo Ticket
     public function novoTicket(){
+        echo('oi');
         if($this->session->logado){
             if($this->session->permissao == 'Cliente'){
                 $this->load->model('TicketModel', 'ticket');
@@ -40,8 +76,9 @@ class Ticket extends CI_Controller {
                 $this->ticket->assunto = $this->input->post('assunto');
                 $this->ticket->prioridade = $this->input->post('prioridade');
                 $this->ticket->fkusuario = $this->session->id;
+                $this->ticket->status = 'Aberta';
                 $this->ticket->salvarTicket();
-                redirect('lista');
+                redirect('listar/'.'Todas');
             }else{
                 redirect();
             }

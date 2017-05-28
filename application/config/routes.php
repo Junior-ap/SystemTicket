@@ -55,13 +55,16 @@ $route['translate_uri_dashes'] = FALSE;
 
 $route['sair'] ['GET'] = 'login/sair';
 $route['autenticar'] ['POST'] = 'login/autenticar';
-$route['autenticar'] ['GET'] = 'login/autenticar';
+$route['autenticar'] ['GET'] = 'login';
 
-$route['novoTicket'] ['GET'] = 'ticket/listarTicketUsuario';
-$route['lista'] ['GET'] = 'ticket/listarTicketUsuario';
-$route['novoCliente'] ['GET'] = 'ticket/listarTicketUsuario';
-$route['novoticket']['POST'] = 'ticket/novoTicket';
+$route['exibirTicket/(:any)'] ['GET'] = 'ticket/exibirTicket/$1';
+$route['listar/(:any)'] ['GET'] = 'ticket/listar/$1';
+$route['criarTicket'] ['GET'] = 'ticket/criarTicketUsuario';
+$route['novoTicket']['POST'] = 'ticket/novoTicket';
 
+$route['deletar/(:any)'] ['GET'] = 'usuario/deletar/$1';
+$route['atualizar/(:any)'] ['POST'] = 'usuario/atualizar/$1';
+$route['exibirUsuario/(:any)'] ['GET'] = 'usuario/exibirUsuario/$1';
 $route['listaUsuarios'] ['GET'] = 'usuario/listar';
 $route['novoUsuario'] ['GET'] = 'usuario/novoUsuario';
 $route['novoUsuario'] ['POST'] = 'usuario/cadastrar';
