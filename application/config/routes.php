@@ -61,6 +61,9 @@ $route['exibirTicket/(:any)'] ['GET'] = 'ticket/exibirTicket/$1';
 $route['listar/(:any)'] ['GET'] = 'ticket/listar/$1';
 $route['criarTicket'] ['GET'] = 'ticket/criarTicketUsuario';
 $route['novoTicket']['POST'] = 'ticket/novoTicket';
+$route['comentar/(:num)/(:any)'] ['POST'] = 'ticket/comentarTicket/$1/$2';
+$route['status/(:num)/(:any)'] ['GET'] = 'ticket/statusTicket/$1/$2';
+$route['email'] ['GET'] = 'ticket/enviarEmail';
 
 $route['deletar/(:any)'] ['GET'] = 'usuario/deletar/$1';
 $route['atualizar/(:any)'] ['POST'] = 'usuario/atualizar/$1';

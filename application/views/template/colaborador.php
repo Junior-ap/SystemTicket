@@ -8,9 +8,9 @@
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
                 <ul class="dropdown-menu">
                     <li><a href="<?= base_url('ticket/listar/'.'Todas')?>">Todas</a></li>
-                    <li><a href="<?= base_url('ticket/listar/'.'Aberta')?>">Abertas</a></li>
+                    <li><a href="<?= base_url('ticket/listar/'.'Aberto')?>">Abertos</a></li>
                     <li><a href="<?= base_url('ticket/listar/'.'Andamento')?>">Andamento</a></li>
-                    <li><a href="<?= base_url('ticket/listar/'.'Finalizada')?>">Finalizadas</a></li>
+                    <li><a href="<?= base_url('ticket/listar/'.'Finalizado')?>">Finalizados</a></li>
                 </ul>
             </li>
         </ul>
