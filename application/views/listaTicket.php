@@ -5,10 +5,10 @@
             <th>Assunto</th>
             <th>Prioridade</th>
             <th>Data</th>
+            <th>Status</th>
         </tr>
         <?php foreach($ticket as $tic){?>
             <tr onclick="listaTicket(<?= $tic->id?>)">
-                <td><?= $tic->id?></td>
                 <td><?= $tic->nome?></td>
                 <td><?= $tic->assunto?></td>
                 <td><?= $tic->prioridade?></td>

@@ -2,18 +2,17 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Login extends CI_Controller {
-    public $data;
-    //Carregar a pagina inicial do sistema de login
+//Carregar a pagina inicial do sistema de login
     public function index(){
         if($this->session->logado){
-           redirect('listar/'.'Aberta');
+            redirect('listar/'.'Todas');
         }else{
             $this->load->view('template/header');
             $this->load->view('login',$this->data);
             $this->load->view('template/footer');
         }
     }
-    //Verificar usuario e senha
+//Verificar usuario e senha
     public function autenticar(){
         $this->load->model('Usuarios','usuario');
         $use = $this->usuario->pesquisa($this->input->post('usuario'));
@@ -35,12 +34,9 @@ class Login extends CI_Controller {
             $this->index();
         }
     }
-
-    //Deslogar o usuario
+//Deslogar o usuario
     public function sair(){
         $this->session->sess_destroy();
         redirect('login');
     }
-
-
 }
