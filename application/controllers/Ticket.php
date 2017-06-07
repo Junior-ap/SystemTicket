@@ -39,9 +39,11 @@ class Ticket extends CI_Controller{
     public function criarTicketUsuario(){
         autoriza();
         autorizaClienteRedirect();
+        $this->load->model('TicketModel', 'ticket');
+        $dados['assunto'] = $this->ticket->buscarAssunto();
             $this->load->view('template/header');
             $this->load->view('template/cliente');
-            $this->load->view('novoTicket');
+            $this->load->view('novoTicket',$dados);
             $this->load->view('template/footer');
     }
 //Salvar no banco de dados Novo Ticket (So Cliente pode Execulta)

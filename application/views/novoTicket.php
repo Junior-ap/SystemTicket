@@ -13,9 +13,11 @@
             <div class="col-sm-4 offiset">
             <label for="assunto">Assunto</label>
             <select class="form-control " id="sel1" name="assunto">
-                <option>Problema com o software</option>
-                <option>Problema com Redes</option>
-                <option>Problema com Hardware</option>
+                <?php foreach($assunto as $assu){?>
+                    <tr>
+                        <option><?= $assu->assunto?></option>
+                    </tr>
+                <?php } ?>
             </select>
             </div>
             <div class="form-group col-sm-8">
