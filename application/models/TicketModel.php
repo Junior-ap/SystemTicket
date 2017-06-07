@@ -70,4 +70,19 @@ class TicketModel extends CI_Model {
         $this->db->where('id' , $id);
         $this->db->update('ticket');
     }
+//Buscar assunto
+    public function buscarAssunto(){
+        $query = $this->db->get('assunto');
+        return $query->result();
+    }
+//Salvar Assunto
+    public function salvarAssunto(){
+        return
+            $this->db->insert('assunto',$this);
+    }
+//Salvar Assunto
+    public function exckuirAssunto($id){
+        $this->db->where('id',$id);
+        return $this->db->delete('assunto');
+    }
 }

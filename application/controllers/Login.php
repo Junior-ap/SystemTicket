@@ -2,10 +2,11 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Login extends CI_Controller {
+    public $data;
 //Carregar a pagina inicial do sistema de login
     public function index(){
         if($this->session->logado){
-            redirect('listar/'.'Todas');
+            redirect('listar/'.'Todos');
         }else{
             $this->load->view('template/header');
             $this->load->view('login',$this->data);
@@ -26,7 +27,7 @@ class Login extends CI_Controller {
                 'logado' => TRUE
             );
             $this->session->set_userdata($data);
-            redirect('listar/'.'Todas');
+            redirect('listar/'.'Todos');
         }
         else{
             $this->data['error']= new stdClass();

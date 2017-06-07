@@ -35,7 +35,7 @@ function autorizaColaborador(){
 //Saber se o usuario tem permissão de Cliente (Retonar Verdadeiro ou Falso)
 function autorizaCliente(){
     $ci = get_instance();
-    if($ci->session->permissao == 'Colaborador'){
+    if($ci->session->permissao == 'Cliente'){
         return true;
     }
     return false;

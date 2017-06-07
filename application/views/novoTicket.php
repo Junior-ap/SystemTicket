@@ -1,6 +1,6 @@
 ﻿<div class="container ">
     <div class="row">
-        <form role="form" method="post" action="<?= base_url('novoTicket')?>">
+        <form role="form" method="post" action="<?= base_url('novoTicket/'.$this->session->id)?>">
             <div class="col-sm-2">
             <label for="prioridade">Prioridade</label>
                 <select class="form-control " id="sel1" name="prioridade">

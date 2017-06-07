@@ -57,13 +57,16 @@ $route['sair'] ['GET'] = 'login/sair';
 $route['autenticar'] ['POST'] = 'login/autenticar';
 $route['autenticar'] ['GET'] = 'login';
 
+$route['assunto'] ['GET'] = 'ticket/assunto';
+$route['novoAssunto']['POST'] = 'ticket/novoAssunto';
+$route['excluirAssunto/(:any)']['GET'] = 'ticket/excluirAssunto/$1';
+
 $route['exibirTicket/(:any)'] ['GET'] = 'ticket/exibirTicket/$1';
 $route['listar/(:any)'] ['GET'] = 'ticket/listar/$1';
 $route['criarTicket'] ['GET'] = 'ticket/criarTicketUsuario';
-$route['novoTicket']['POST'] = 'ticket/novoTicket';
+$route['novoTicket/(:any)']['POST'] = 'ticket/novoTicket/$1';
 $route['comentar/(:num)/(:any)'] ['POST'] = 'ticket/comentarTicket/$1/$2';
 $route['status/(:num)/(:any)'] ['GET'] = 'ticket/statusTicket/$1/$2';
-$route['email'] ['GET'] = 'ticket/enviarEmail';
 
 $route['deletar/(:any)'] ['GET'] = 'usuario/deletar/$1';
 $route['atualizar/(:any)'] ['POST'] = 'usuario/atualizar/$1';

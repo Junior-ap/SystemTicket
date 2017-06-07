@@ -15,9 +15,8 @@
                         <li><a href="<?= base_url('ticket/listar/'.'Finalizado')?>">Finalizados</a></li>
                     </ul>
                 </li>
-                <li class="active"><a href="<?= base_url('#')?>">Configuração</a></li>
+                <li class="active"><a href="<?= base_url('assunto')?>">Configuração</a></li>
             </ul>
         </div>
     </div>
-    <a href="<?= base_url('email')?>">Email</a>
 </nav>
