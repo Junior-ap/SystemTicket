@@ -1,5 +1,10 @@
-﻿<div class="container ">
-    <div class="row">
+﻿<div class="ui raised very padded text container segment">
+
+<div class="ui top attached label">
+
+
+
+    <div class="ui form">
         <div class="form-group col-sm-4">
             <h3><?= $ticket[0]->nome?></h3>
         </div>
@@ -26,9 +31,9 @@
         <?php } ?>
         <div class="form-group col-sm-8">
             <form role="form" method="post" action="<?= base_url('comentar/').$ticket[0]->id .'/'. $this->session->id ?>">
-                <label for="problema">Comentar</label>
+                <label for="problema">Comentar:</label>
                 <textarea class="form-control" rows="5" name="comentario"></textarea>
-                <button type="submit" class="btn col-sm-8">Comentar</button>
+                <button class="ui right floated primary button" type="submit" >Comentar</button>
 
             </form>
         </div>

@@ -1,19 +1,29 @@
-﻿<?= $this->session->nome?>
+﻿</head>
+<body>
+<main>
 
-<a href="<?= base_url('sair')?>">Sair</a>
-<div class="container">
-    <div id="navbar" class="navbar-collapse collapse">
-        <ul class="nav navbar-nav">
-            <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-                <ul class="dropdown-menu">
-                    <li><a href="<?= base_url('ticket/listar/'.'Todos')?>">Todos</a></li>
-                    <li><a href="<?= base_url('ticket/listar/'.'Aberto')?>">Abertos</a></li>
-                    <li><a href="<?= base_url('ticket/listar/'.'Andamento')?>">Andamento</a></li>
-                    <li><a href="<?= base_url('ticket/listar/'.'Finalizado')?>">Finalizados</a></li>
-                </ul>
-            </li>
-        </ul>
+<nav>
+    <div class="ui inverted segment">
+        <div class="ui inverted secondary pointing menu">
+            <h2>  Sistem Tickets</h2>
+            <div class="right menu">
+                <label class="ui left attached disabled button"><?= $this->session->nome?></label>
+                <a href="<?= base_url('sair')?>" class="right attached ui button"> <i class="sign out icon "></i> Sair</a>
+            </div>
+        </div>
     </div>
-</div>
+
+    <div class="ui menu">
+
+        <div class="ui simple dropdown item">
+            Status Tickets <i class="dropdown icon"></i>
+            <div class="menu">
+                <a class="item" href="<?= base_url('ticket/listar/'.'Todos')?>">Todos</a>
+                <a class="item" href="<?= base_url('ticket/listar/'.'Aberto')?>">Em Aberto</a>
+                <a class="item" href="<?= base_url('ticket/listar/'.'Andamento')?>">Em Andamento</a>
+                <a class="item" href="<?= base_url('ticket/listar/'.'Finalizado')?>">Finalizados</a>
+
+            </div>
+
 </nav>
+

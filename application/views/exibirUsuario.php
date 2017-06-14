@@ -1,7 +1,7 @@
-﻿<div class="container ">
-    <div class="row">
+﻿<div class="ui raised very padded text container segment">
+<div class="ui fluid form">
         <?php foreach($use as $user){?>
-        <a href="<?= base_url('deletar/'.$user->id)?>">Deletar</a>
+        <a class="ui right floated red button" href="<?= base_url('deletar/'.$user->id)?>""> Deletar </a>
         <form role="form" method="post" action="<?= base_url('atualizar/'.$user->id)?>">
             <div class="form-group col-sm-10">
                 <label for="empresa">Empresa</label>
@@ -25,10 +25,16 @@
                     <option <?php if($user->permissao == 'Administrador'):?>selected<?php endif;?>>Administrador</option>
                 </select>
             </div>
+            
             <?php } ?>
-            <button type="submit" class="btn col-sm-2">Atualizar</button>
+            <button class="ui left floated button" type="submit" a href="<?= base_url('listaUsuarios')?>" >Voltar</button>
+            <button class="ui right floated primary button" type="submit" >Atualizar</button>
+
+            
+            
 
         </form>
+       </div> 
     </div>
 
 </div>

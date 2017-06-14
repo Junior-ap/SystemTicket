@@ -1,5 +1,10 @@
-﻿<div class="container ">
-    <div class="row">
+﻿
+<div class="ui raised very padded text container segment">
+
+    <h3 class="ui left aligned header center">
+        Envie seu Ticket!
+    </h3>
+    <div class="ui form">
         <form role="form" method="post" action="<?= base_url('novoTicket/'.$this->session->id)?>">
             <div class="col-sm-2">
             <label for="prioridade">Prioridade</label>
@@ -22,10 +27,9 @@
             </div>
             <div class="form-group col-sm-8">
                 <label for="problema">Problema</label>
-                <textarea class="form-control" rows="5" id="comment" name="ticket"></textarea>
+                <textarea class="form-control" rows="5" id="comment" name="ticket" required ></textarea>
             </div>
-            <button type="submit" class="btn col-sm-8">Enviar</button>
-
+            <button class="ui right floated primary button" type="submit" >Salvar</button>
         </form>
     </div>
 
